@@ -1,4 +1,67 @@
-import { Dimension, Question, QuestionFull } from './types';
+import { Dimension, Question, QuestionFull, DemographicQuestion } from './types';
+
+// Demographic Questions - following same numeric structure as assessment questions
+export const demographicQuestions: DemographicQuestion[] = [
+  {
+    question: 1,
+    text: 'Rol',
+    options: [
+      { option: 1, text: 'Propietario' },
+      { option: 2, text: 'No Propietario' }
+    ]
+  },
+  {
+    question: 2,
+    text: 'Edad',
+    options: [
+      { option: 1, text: 'Menor o igual a 30 años' },
+      { option: 2, text: 'Mayor de 30 años' }
+    ]
+  },
+  {
+    question: 3,
+    text: 'Rubro',
+    options: [
+      { option: 1, text: 'Comercial' },
+      { option: 2, text: 'Servicios' },
+      { option: 3, text: 'Productiva' }
+    ]
+  },
+  {
+    question: 4,
+    text: 'Cantidad de empleados',
+    options: [
+      { option: 1, text: '0-3' },
+      { option: 2, text: '4-10' },
+      { option: 3, text: 'Mas de 10 empleados' }
+    ]
+  },
+  {
+    question: 5,
+    text: 'Forma jurídica',
+    options: [
+      { option: 1, text: 'Unipersonal' },
+      { option: 2, text: 'Sociedad' }
+    ]
+  },
+  {
+    question: 6,
+
+    text: 'Cuenta con Sucursales',
+    options: [
+      { option: 1, text: 'Si' },
+      { option: 2, text: 'No' }
+    ]
+  },
+  {
+    question: 7,
+    text: 'Ubicación',
+    options: [
+      { option: 1, text: 'Mar del Plata' },
+      { option: 2, text: 'No Mar del Plata' }
+    ]
+  }
+];
 
 // Según tabla oficial: 4 dimensiones. Ajustaremos número de preguntas para que los máximos coincidan con la tabla.
 // Tabla esperada (rangos Alto enfoque): Cliente 18-15, Competencia 12-10, Interno 9-8, Entorno 12-10.

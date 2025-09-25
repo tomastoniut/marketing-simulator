@@ -39,8 +39,34 @@ export interface DimensionScore {
 
 export interface AssessmentResult {
   dimensionScores: DimensionScore[];
-  globalTotal: number; // total sum
-  globalMax: number; // global max (51)
-  globalCategory: string; // Alto enfoque | Enfoque medio | Enfoque bajo o nulo
+  globalTotal: number;
+  globalMax: number;
+  globalCategory: string;
   recommendations: string[];
+}
+
+// Demographic questions types - following same pattern as Assessment questions
+export interface DemographicOption {
+  option: number; // numeric ID like question field
+  text: string;   // display text
+}
+
+export interface DemographicQuestion {
+  question: number;     // numeric ID like assessment questions
+  text: string;         // display text
+  options: DemographicOption[];
+}
+
+export interface DemographicAnswer {
+  question: number;     // FK -> DemographicQuestion.question
+  option: number;       // FK -> DemographicOption.option
+}
+
+export interface DemographicData {
+  answers: DemographicAnswer[];
+}
+
+export interface CompleteAssessmentResult {
+  demographicData: DemographicData;
+  assessmentResult: AssessmentResult;
 }
