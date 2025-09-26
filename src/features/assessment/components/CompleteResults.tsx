@@ -2,6 +2,7 @@ import React from 'react';
 import { dimensions, demographicQuestions } from '@/domain/questions';
 import { CompleteAssessmentResult } from '@/domain/types';
 import { Button, Card, CardDescription, CardTitle, ProgressBar } from '@/components/ui';
+import { EmailResults } from './EmailResults';
 
 interface Props {
   result: CompleteAssessmentResult;
@@ -68,6 +69,9 @@ export function CompleteResults({ result, onRestart }: Props) {
           <Button onClick={onRestart}>Reiniciar</Button>
         </div>
       </Card>
+
+      {/* Email Results Section */}
+      <EmailResults result={result} />
     </div>
   );
 }
