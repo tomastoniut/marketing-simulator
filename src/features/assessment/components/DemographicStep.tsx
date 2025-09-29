@@ -27,7 +27,7 @@ export function DemographicStep({
 }: Props) {
   return (
     <Card>
-      <CardTitle>Información general - Pregunta {index + 1} de {total}</CardTitle>
+      <CardTitle>Información general</CardTitle>
       <CardDescription>{question.text}</CardDescription>
       
       <div className="space-y-3 my-6">
