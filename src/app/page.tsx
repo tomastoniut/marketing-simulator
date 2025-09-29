@@ -1,6 +1,7 @@
 import Image from "next/image";
-import Link from 'next/link';
-import { getAssetPath } from '@/lib/assets';
+import Link from "next/link";
+import { getAssetPath } from "@/lib/assets";
+import { APP_VERSION, BUILD_TIME } from "@/lib/version";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center text-xs text-gray-500 dark:text-gray-400">
         <span>© {new Date().getFullYear()} Marketing Simulator</span>
+        <span>v{APP_VERSION.slice(0, 7)}</span>
       </footer>
     </div>
   );
