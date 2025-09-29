@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from 'next/link';
+import { getAssetPath } from '@/lib/assets';
 
 export default function Home() {
   return (
   <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 bg-white text-[var(--brand-blue)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start max-w-xl">
         <Image
-          src="/universidadFasta.jpg"
+          src={getAssetPath("/universidadFasta.jpg")}
           alt="Universidad FASTA"
           width={200}
           height={60}

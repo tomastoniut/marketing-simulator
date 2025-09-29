@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { getAssetPath } from '@/lib/assets';
 
 interface ErrorProps {
   error: Error & { digest?: string };
@@ -14,7 +15,7 @@ export default function Error({ error, reset }: ErrorProps) {
         {/* Logo FASTA */}
         <div className="flex justify-center">
           <Image
-            src="/universidadFasta.jpg"
+            src={getAssetPath("/universidadFasta.jpg")}
             alt="Universidad FASTA"
             width={200}
             height={100}
