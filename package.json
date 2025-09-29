@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "next build",
+    "build:prod": "NODE_ENV=production next build",
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "deploy": "npm run build:prod && git add out && git commit -m 'Deploy to GitHub Pages' && git push origin prod"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

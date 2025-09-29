@@ -15,7 +15,8 @@
 
 # next.js
 /.next/
-/out/
+# Comentamos /out/ para permitir commit en rama prod
+# /out/
 
 # production
 /build
