@@ -4,7 +4,7 @@
 
 const isProd = process.env.NODE_ENV === 'production';
 // Si tenemos dominio personalizado, no necesitamos basePath
-const hasCustomDomain = isProd && process.env.NEXT_PUBLIC_APP_URL?.includes('universidadfastamarketing.com.ar');
+const hasCustomDomain = isProd && process.env.NEXT_PUBLIC_APP_URL?.includes('marketingsimulator.netlify.app');
 const basePath = isProd && !hasCustomDomain ? '/marketing-simulator' : '';
 
 /**

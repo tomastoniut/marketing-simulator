@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const isProd = process.env.NODE_ENV === 'production';
 // Detectar si estamos usando dominio personalizado
-const hasCustomDomain = isProd && process.env.NEXT_PUBLIC_APP_URL?.includes('universidadfastamarketing.com.ar');
+const hasCustomDomain = isProd && process.env.NEXT_PUBLIC_APP_URL?.includes('marketingsimulator.netlify.app');
 
 const nextConfig: NextConfig = {
   // Configuración para GitHub Pages - Static Export
