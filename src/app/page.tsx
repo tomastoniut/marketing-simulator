@@ -4,8 +4,8 @@ import { getAssetPath } from '@/lib/assets';
 
 export default function Home() {
   return (
-  <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 bg-white text-[var(--brand-blue)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start max-w-xl">
+  <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen px-6 py-8 sm:px-20 sm:py-20 gap-16 bg-white text-[var(--brand-blue)]">
+      <main className="flex flex-col gap-6 sm:gap-8 row-start-2 items-center sm:items-start max-w-xl w-full px-2 sm:px-0">
         <Image
           src={getAssetPath("/universidadFasta.jpg")}
           alt="Universidad FASTA"
@@ -17,9 +17,9 @@ export default function Home() {
         <p className="text-sm text-[var(--brand-blue)]/90">
           Responde un conjunto de preguntas para obtener un diagnóstico cuantitativo de tu nivel de orientación al marketing .
         </p>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+        <div className="flex gap-4 items-center flex-col sm:flex-row w-full">
           <Link
-            className="rounded-md border border-[var(--brand-blue)] text-[var(--brand-blue)] hover:bg-[var(--progress-track)] px-5 py-3 text-sm font-medium transition-colors"
+            className="rounded-md border border-[var(--brand-blue)] text-[var(--brand-blue)] hover:bg-[var(--progress-track)] px-6 py-4 text-base sm:text-sm font-medium transition-colors w-full sm:w-auto text-center"
             href="/simulador"
           >
             Comenzar evaluación

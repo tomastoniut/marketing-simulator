@@ -23,14 +23,14 @@ export function QuestionStep({ index, total, value, onSelect, onNext, onPrev, ca
     <Card>
         <CardTitle>{dim ? dim.name : `Dimensión ${q.dimension}`}</CardTitle>
         <CardDescription>{q.text}</CardDescription>
-        <div className="flex gap-2 my-4 items-center">
+        <div className="flex gap-3 my-4 items-center justify-center sm:justify-start">
         {scale.map(s => {
             const active = value === s;
             return (
             <button
                 key={s}
                 onClick={() => onSelect(s)}
-                className={`w-10 h-10 rounded-full border flex items-center justify-center text-sm font-medium transition-colors
+                className={`w-12 h-12 sm:w-10 sm:h-10 rounded-full border flex items-center justify-center text-sm font-medium transition-colors
                 ${active ? 'bg-[var(--brand-blue)] text-white border-[var(--brand-blue)]' : 'bg-white text-[var(--brand-blue)] border-[var(--brand-blue)] hover:bg-[var(--progress-track)]'}`}
                 aria-pressed={active}
             >{s}</button>
@@ -42,9 +42,9 @@ export function QuestionStep({ index, total, value, onSelect, onNext, onPrev, ca
         <span>2 = Parcialmente de acuerdo</span>
         <span>3 = Totalmente de acuerdo</span>
         </div>
-        <div className="flex gap-2 justify-end">
-        <Button disabled={!canPrev} onClick={onPrev}>Anterior</Button>
-        <Button variant="secondary" disabled={!canNext} onClick={onNext}>{index === total -1 ? 'Finalizar' : 'Siguiente'}</Button>
+        <div className="flex gap-2 justify-end flex-col sm:flex-row">
+        <Button disabled={!canPrev} onClick={onPrev} className="w-full sm:w-auto">Anterior</Button>
+        <Button variant="secondary" disabled={!canNext} onClick={onNext} className="w-full sm:w-auto">{index === total -1 ? 'Finalizar' : 'Siguiente'}</Button>
         </div>
     </Card>
   );

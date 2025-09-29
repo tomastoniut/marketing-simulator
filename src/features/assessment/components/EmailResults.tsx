@@ -96,7 +96,7 @@ export function EmailResults({ result }: Props) {
           <Button
             type="submit"
             disabled={isLoading || !email.trim()}
-            className="flex-1"
+            className="w-full"
           >
             {isLoading ? (
               <>

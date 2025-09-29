@@ -18,15 +18,15 @@ export function CompleteResults({ result, onRestart }: Props) {
       <Card>
         <CardTitle>Información del Participante</CardTitle>
         <CardDescription>Datos recopilados para análisis</CardDescription>
-        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {demographicData.answers.map(answer => {
             const question = demographicQuestions.find(q => q.question === answer.question);
             const option = question?.options.find(opt => opt.option === answer.option);
             if (!question || !option) return null;
             
             return (
-              <div key={answer.question} className="bg-gray-50 p-3 rounded-lg">
-                <div className="text-xs font-medium text-gray-600 mb-1">
+              <div key={answer.question} className="bg-gray-50 p-4 rounded-lg">
+                <div className="text-xs font-medium text-gray-600 mb-2">
                   {question.text}
                 </div>
                 <div className="text-sm font-semibold text-gray-900">
@@ -66,7 +66,7 @@ export function CompleteResults({ result, onRestart }: Props) {
           </ul>
         </div>
         <div className="mt-6 flex justify-end">
-          <Button onClick={onRestart}>Reiniciar</Button>
+          <Button onClick={onRestart} className="w-full sm:w-auto">Reiniciar</Button>
         </div>
       </Card>
 

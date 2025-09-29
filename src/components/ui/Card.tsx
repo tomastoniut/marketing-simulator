@@ -10,7 +10,7 @@ export function Card({ className, padded = true, ...rest }: CardProps) {
     <div
       className={clsx(
         'rounded-lg border bg-[var(--card-bg)] border-[var(--card-border)] shadow-sm',
-        padded && 'p-4',
+        padded && 'p-4 sm:p-6',
         className,
       )}
       {...rest}

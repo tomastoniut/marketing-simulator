@@ -54,11 +54,11 @@ export function DemographicStep({
         })}
       </div>
 
-      <div className="flex gap-2 justify-end">
-        <Button disabled={!canPrev} onClick={onPrev}>
+      <div className="flex gap-2 justify-end flex-col sm:flex-row">
+        <Button disabled={!canPrev} onClick={onPrev} className="w-full sm:w-auto">
           Anterior
         </Button>
-        <Button variant="secondary" disabled={!canNext} onClick={onNext}>
+        <Button variant="secondary" disabled={!canNext} onClick={onNext} className="w-full sm:w-auto">
           {index === total - 1 ? 'Continuar al Cuestionario' : 'Siguiente'}
         </Button>
       </div>
