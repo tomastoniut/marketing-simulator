@@ -42,7 +42,7 @@ jobs:
           static_site_generator: next
           
       - name: Build with Next.js
-        run: npm run build
+        run: npm run build:prod
         env:
           # Variables de entorno para el build (si las necesitas públicas)
           NEXT_PUBLIC_APP_URL: https://tomastoniut.github.io/marketing-simulator
