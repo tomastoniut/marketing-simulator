@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCompleteAssessment } from '../hooks/useCompleteAssessment';
-import { DemographicStep } from './DemographicStep';
+import { AllDemographicQuestions } from './AllDemographicQuestions';
 import { QuestionStep } from './QuestionStep';
 import { CompleteResults } from './CompleteResults';
 import { ProgressBar } from '@/components/ui';
@@ -24,11 +24,11 @@ export function CompleteAssessmentFlow() {
   } = useCompleteAssessment();
 
   // Calculate overall progress
-  const totalSteps = demographicQuestions.length + questions.length;
+  const totalSteps = 1 + questions.length; // 1 step for all demographic questions + individual assessment questions
   const currentStep = phase === 'demographic' 
-    ? currentIndex + 1 
+    ? 1 
     : phase === 'assessment' 
-    ? demographicQuestions.length + currentIndex + 1
+    ? 1 + currentIndex + 1
     : totalSteps;
   const progressPercent = phase === 'results' ? 100 : (currentStep / totalSteps) * 100;
 
@@ -52,16 +52,12 @@ export function CompleteAssessmentFlow() {
 
       {/* Current Step Content */}
       {phase === 'demographic' && (
-        <DemographicStep
-          question={demographicQuestions[currentIndex]}
-          index={currentIndex}
-          total={demographicQuestions.length}
-          selectedOption={demographicAnswers.find(a => a.question === demographicQuestions[currentIndex].question)?.option}
-          onSelect={(optionId) => setDemographicAnswer(demographicQuestions[currentIndex].question, optionId)}
+        <AllDemographicQuestions
+          questions={demographicQuestions}
+          answers={demographicAnswers}
+          onSelect={setDemographicAnswer}
           onNext={next}
-          onPrev={prev}
           canNext={canNext}
-          canPrev={canPrev}
         />
       )}
 

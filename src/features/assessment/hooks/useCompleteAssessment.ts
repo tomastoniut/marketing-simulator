@@ -63,13 +63,9 @@ export function useCompleteAssessment(): UseCompleteAssessmentReturn {
 
   const next = useCallback(() => {
     if (phase === 'demographic') {
-      if (currentIndex < demographicQuestions.length - 1) {
-        setCurrentIndex(i => i + 1);
-      } else {
-        // Move to assessment phase
-        setPhase('assessment');
-        setCurrentIndex(0);
-      }
+      // Move directly to assessment phase since all demographic questions are shown at once
+      setPhase('assessment');
+      setCurrentIndex(0);
     } else if (phase === 'assessment') {
       if (currentIndex < questions.length - 1) {
         setCurrentIndex(i => i + 1);
@@ -94,20 +90,23 @@ export function useCompleteAssessment(): UseCompleteAssessmentReturn {
 
   const prev = useCallback(() => {
     if (phase === 'assessment' && currentIndex === 0) {
-      // Go back to last demographic question
+      // Go back to demographic phase
       setPhase('demographic');
-      setCurrentIndex(demographicQuestions.length - 1);
-    } else if (phase === 'demographic' || phase === 'assessment') {
+      setCurrentIndex(0);
+    } else if (phase === 'assessment') {
       setCurrentIndex(i => Math.max(0, i - 1));
     }
+    // No prev functionality for demographic phase since all questions are shown at once
   }, [phase, currentIndex]);
 
   const canNext = useMemo(() => {
     if (phase === 'results') return false;
     
     if (phase === 'demographic') {
-      const currentQuestion = demographicQuestions[currentIndex];
-      return demographicAnswers.some(a => a.question === currentQuestion.question);
+      // Check if all demographic questions are answered
+      return demographicQuestions.every(q => 
+        demographicAnswers.some(a => a.question === q.question)
+      );
     }
     
     if (phase === 'assessment') {
@@ -120,10 +119,10 @@ export function useCompleteAssessment(): UseCompleteAssessmentReturn {
 
   const canPrev = useMemo(() => {
     if (phase === 'results') return false;
-    if (phase === 'demographic') return currentIndex > 0;
+    if (phase === 'demographic') return false; // No prev in demographic since all questions are shown
     if (phase === 'assessment') return true; // Can always go back from assessment
     return false;
-  }, [phase, currentIndex]);
+  }, [phase]);
 
   const reset = useCallback(() => {
     setPhase('demographic');

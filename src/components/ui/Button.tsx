@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 
-type Variant = 'primary' | 'secondary' | 'ghost';
+type Variant = 'primary' | 'secondary' | 'ghost' ;
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant;
 }
@@ -10,7 +10,7 @@ const base = 'inline-flex items-center justify-center rounded-md text-sm font-me
 const variants: Record<Variant,string> = {
   primary: 'bg-white text-[var(--brand-blue)] border border-[var(--brand-blue)] focus:ring-2 focus:ring-[var(--focus-ring)]',
   secondary: 'bg-[var(--brand-blue)] text-white hover:bg-brand-light focus:ring-2 focus:ring-[var(--focus-ring)]',
-  ghost: 'bg-transparent text-[var(--brand-blue)] hover:bg-[var(--progress-track)]'
+  ghost: 'bg-transparent text-[var(--brand-blue)] hover:bg-[var(--progress-track)]',
 };
 
 export function Button({ variant='primary', className, ...rest }: ButtonProps) {
