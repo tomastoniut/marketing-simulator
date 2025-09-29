@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "build:prod": "NODE_ENV=production next build",
+    "build:prod": "NODE_ENV=production next build && echo 'Build completed, checking output...' && ls -la",
+    "export": "NODE_ENV=production next build",
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",

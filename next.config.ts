@@ -1,20 +1,24 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig: NextConfig = {
-  // Configuración para GitHub Pages
+  // Configuración para GitHub Pages - Static Export
   output: 'export',
-  trailingSlash: true,
-  skipTrailingSlashRedirect: true,
   distDir: 'out',
+  trailingSlash: true,
   
-  // Base path para GitHub Pages (nombre del repositorio)
-  basePath: process.env.NODE_ENV === 'production' ? '/marketing-simulator' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/marketing-simulator' : '',
+  // Base path para GitHub Pages (solo en producción)
+  basePath: isProd ? '/marketing-simulator' : '',
+  assetPrefix: isProd ? '/marketing-simulator' : '',
   
   // Optimización de imágenes deshabilitada para static export
   images: {
     unoptimized: true,
   },
+  
+  // Configuración adicional para GitHub Pages
+  skipTrailingSlashRedirect: true,
 };
 
 export default nextConfig;
