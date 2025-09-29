@@ -4,7 +4,6 @@
 
 const isProd = process.env.NODE_ENV === 'production';
 const basePath = isProd ? '/marketing-simulator' : '';
-
 /**
  * Construye la ruta completa para un asset público
  * @param path - Ruta del asset (ej: '/logo.png')
