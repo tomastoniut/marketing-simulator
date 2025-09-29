@@ -3,9 +3,9 @@
  */
 
 const isProd = process.env.NODE_ENV === 'production';
-// Si tenemos dominio personalizado, no necesitamos basePath
-const hasCustomDomain = isProd && process.env.NEXT_PUBLIC_APP_URL?.includes('marketingsimulator.netlify.app');
-const basePath = isProd && !hasCustomDomain ? '/marketing-simulator' : '';
+// Detectar si estamos en Netlify o GitHub Pages
+const isNetlify = isProd && (process.env.NETLIFY === 'true' || process.env.NEXT_PUBLIC_APP_URL?.includes('netlify.app'));
+const basePath = isProd && !isNetlify ? '/marketing-simulator' : '';
 
 /**
  * Construye la ruta completa para un asset público
