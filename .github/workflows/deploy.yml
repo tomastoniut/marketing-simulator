@@ -44,8 +44,25 @@ jobs:
       - name: Build with Next.js
         run: npm run build:prod
         env:
-          # Variables de entorno para el build (si las necesitas públicas)
+          # Variables de entorno para el build
+          NODE_ENV: production
           NEXT_PUBLIC_APP_URL: https://tomastoniut.github.io/marketing-simulator
+          # EmailJS variables (opcionales para el build, pero buenas para tener)
+          NEXT_PUBLIC_EMAILJS_SERVICE_ID: ${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }}
+          NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: ${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID }}
+          NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: ${{ secrets.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }}
+          
+      - name: Verify build output
+        run: |
+          echo "Checking if out directory exists..."
+          ls -la
+          if [ -d "out" ]; then
+            echo "✅ out directory found"
+            ls -la out/
+          else
+            echo "❌ out directory not found"
+            exit 1
+          fi
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
