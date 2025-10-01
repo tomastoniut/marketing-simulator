@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { getAssetPath } from '@/lib/assets';
+
 
 export default function NotFound() {
   return (
@@ -8,7 +8,7 @@ export default function NotFound() {
         {/* Logo FASTA */}
         <div className="flex justify-center">
           <Image
-            src={getAssetPath("/universidadFasta.jpg")}
+            src={"/universidadFasta.jpg"}
             alt="Universidad FASTA"
             width={200}
             height={100}

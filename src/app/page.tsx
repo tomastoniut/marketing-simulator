@@ -1,14 +1,13 @@
+import { APP_VERSION } from "@/lib/version";
 import Image from "next/image";
-import Link from "next/link";
-import { getAssetPath } from "@/lib/assets";
-import { APP_VERSION, BUILD_TIME } from "@/lib/version";
+import Link from 'next/link';
 
 export default function Home() {
   return (
   <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen px-6 py-8 sm:px-20 sm:py-20 gap-16 bg-white text-[var(--brand-blue)]">
       <main className="flex flex-col gap-6 sm:gap-8 row-start-2 items-center sm:items-start max-w-xl w-full px-2 sm:px-0">
         <Image
-          src={getAssetPath("/universidadFasta.jpg")}
+          src={"/universidadFasta.jpg"}
           alt="Universidad FASTA"
           width={200}
           height={60}
