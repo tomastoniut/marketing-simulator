@@ -42,7 +42,7 @@ jobs:
           NODE_ENV: production
           NEXT_PUBLIC_APP_VERSION: ${{ github.sha }}
           NEXT_PUBLIC_BUILD_TIME: ${{ github.event.head_commit.timestamp }}
-          NEXT_PUBLIC_APP_URL: http://deepcore.com.ar
+          NEXT_PUBLIC_APP_URL: http://marketingsimulator.deepcore.com.ar
           # EmailJS variables (opcionales para el build, pero buenas para tener)
           NEXT_PUBLIC_EMAILJS_SERVICE_ID: ${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }}
           NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: ${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID }}

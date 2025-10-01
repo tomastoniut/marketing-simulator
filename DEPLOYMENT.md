@@ -72,7 +72,7 @@ git push origin prod
 ## 🌐 URLs
 
 - **Desarrollo**: http://localhost:3000
-- **Producción**: http://deepcore.com.ar
+- **Producción**: http://marketingsimulator.deepcore.com.ar
 
 ## ⚙️ Configuración GitHub Pages
 
